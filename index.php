@@ -12,6 +12,9 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+     <img src="images/header.png" alt="" width="30" height="30">
+   </a>
     <a class="navbar-brand" style= "color: #919191; font-size: 30px;" href="#">Trackr</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -39,8 +42,9 @@
 
 
 <!-- Actual page goes here-->
+<!--style="box-shadow: 0 5px 7px dimgray;"-->
 
-  <div class="container-fluid bg-light" style="box-shadow: 0 5px 7px dimgray;">
+  <div class="container-fluid bg-light" >
   <br>
 
     <div class="container my-5 py-5 z-depth-1">
@@ -54,7 +58,7 @@
           <div class="col-xl-6 col-md-8">
 
             <h3><img
-                src="images/sym.png" style="height: 60px;width: 50px;">Trackr</h3>
+                src="images/header.png" style="height: 60px;width: 60px;">Trackr</h3>
 
             <p style="color:#919191;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-size:15px ;">
             The web app for tracking your progress.
@@ -67,6 +71,44 @@
 
         </div>
       </div>
+
+      <div class="container-fluid my-5 ">
+
+    <div class="container mt-5 z-depth-1 bg-light"
+      style="border-width: 1px;border-style: solid;border-radius: 12px;border-color: #919191;">
+
+
+      <section class="text-center dark-grey-text p-5">
+
+        <h3 style="color:#515151;font-family:Verdana, Geneva, Tahoma, sans-serif ;"
+          class="mb-5 mx-auto">Multiple projects</h3>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-4">
+            <br>
+            <br>
+            <p class="lead">Trackr provides multiple project support, so you can accomplish multiple things at the same type. Ride the hype or grind to glory, we always have your back!</p>
+
+          </div>
+
+          <div class="col-md-6 mb-4">
+
+            <div class="card-img-100 mx-auto mb-4">
+                <img src="images/projects.png" style="height: 300px;width:auto">
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+    </div>
+  </div>
 </div>
 
 
