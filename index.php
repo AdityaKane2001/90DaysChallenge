@@ -31,7 +31,16 @@
           <a class="nav-link" style="color: #919191;" href="tracker.php">Tracker</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  style="color: #919191;" href="login.php">Login</a>
+          <?php
+          $_SESSION['username']='aditya';
+            if(isset($_SESSION['username'])){
+              echo('<a class="nav-link"  style="color: #919191;">Welcome, '.$_SESSION['username'].'</a>');
+            }
+            else{
+              echo('<a class="nav-link" style="color: #919191;" href="login.php">Login</a>');
+            }
+           ?>
+
         </li>
 
       </ul>
@@ -73,7 +82,9 @@
       </div>
 
       <div class="container-fluid my-5 ">
-
+        <center>
+        <a href="signup.php"> <button type="button" class="btn btn-outline-secondary btn-lg" >Get started</button>
+        </a></center>
     <div class="container mt-5 z-depth-1 bg-light"
       style="border-width: 1px;border-style: solid;border-radius: 12px;border-color: #919191;">
 
@@ -108,6 +119,79 @@
 
 
     </div>
+      <br>
+      <div class="container mt-5 z-depth-1 bg-light"
+        style="border-width: 1px;border-style: solid;border-radius: 12px;border-color: #919191;">
+
+
+        <section class="text-center dark-grey-text p-5">
+
+          <h3 style="color:#515151;font-family:Verdana, Geneva, Tahoma, sans-serif ;"
+            class="mb-5 mx-auto">Simple, intuitive interface</h3>
+
+          <div class="row">
+
+            <div class="col-md-6 mb-4">
+              <br>
+              <br><br>
+              <p class="lead">Equipped with a easy to understand UI, Trackr is simple and convinient to use. After all, simplicity is perfection !</p>
+
+            </div>
+
+            <div class="col-md-6 mb-4">
+
+              <div class="card-img-100 mx-auto mb-4">
+                  <img src="images/simple.png" style="height: 300px;width:auto">
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+      </div>
+
+      <div class="container mt-5 z-depth-1 bg-light"
+        style="border-width: 1px;border-style: solid;border-radius: 12px;border-color: #919191;">
+
+
+        <section class="text-center dark-grey-text p-5">
+
+          <h3 style="color:#515151;font-family:Verdana, Geneva, Tahoma, sans-serif ;"
+            class="mb-5 mx-auto">Packed with features</h3>
+
+          <div class="row">
+
+            <div class="col-md-6 mb-4">
+              <br>
+              <br><br>
+              <p class="lead">Under the hood, Trackr boasts of many utilities and micro-applications that make your life easier. Trackr is powerful, yet light.</p>
+
+            </div>
+
+            <div class="col-md-6 mb-4">
+
+              <div class="card-img-100 mx-auto mb-4">
+                  <img src="images/features.png" style="height: 300px;width:auto">
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+      </div>
+
+
+
   </div>
 </div>
 
