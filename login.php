@@ -23,7 +23,7 @@ if ( isset($_POST['username']) &&  isset($_POST['pass'])){
 			return;
 		}
 		else if ( $row2 !== false ) {
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['username'] = $row2['username'];
 			$_SESSION['userid'] = $row['userid'];
 			header("Location: index.php");
 			return;
@@ -41,9 +41,40 @@ if ( isset($_POST['username']) &&  isset($_POST['pass'])){
 <html>
 <head>
 <title>Login</title>
+<style>
+label{
+	position:absolute;
+	left:469px;
+}
+input[type=text], input[type=password] {
+ 
+  width: 30%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+input[type=submit]{
+  background-color:#D3D3D3;
+  color: black;
+  padding: 12px 10px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+</style>
 </head>
 <body>
-<div class="container">
+<div class="container" align="center">
 <h1>Please Log In</h1>
 <?php
 if (isset ($_SESSION['error_login'])){
@@ -52,10 +83,13 @@ unset ($_SESSION['error_login']);
 }
 ?>
 <form method="POST" action="login.php">
-<label for="username">Username</label>
-<input type="text" name="username" id="username"><br/>
-<label for="pass">Password</label>
-<input type="password" name="pass" id="pass"><br/>
+
+<label for="username">Username</label><br>
+<input type="text" name="username" id="username"></br>
+
+<label for="pass">Password</label><br>
+<input type="password" name="pass" id="pass"></br>
+<p>Not a User ? ,Please <a href="signup.php">Sign up</a></p>
 <input type="submit" onclick="return doValidate();" value="Log In">
 <input type="submit" name="cancel" value="Cancel">
 </form>

@@ -14,7 +14,7 @@ if ( isset($_POST['username']) &&  isset($_POST['pass']) && $_POST['pass']==$_PO
 	header("Location: index.php");
 	return;
 			
-
+//margin: 0 0 22px 0;
 }
 ?>
 
@@ -22,18 +22,54 @@ if ( isset($_POST['username']) &&  isset($_POST['pass']) && $_POST['pass']==$_PO
 <html>
 <head>
 <title>Sign Up</title>
+<style>
+label{
+	position:absolute;
+	left:469px;
+}
+input[type=text], input[type=password] {
+ 
+  width: 30%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+input[type=submit]{
+  background-color:#D3D3D3;
+  color: black;
+  padding: 12px 10px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+</style>
+
 </head>
 <body>
-<div class="container">
+<div class="container" align="center">
 <h1>Sign Up as a new user:</h1>
 
 <form method="POST" action="signup.php">
-<label for="username">Username</label>
-<input type="text" name="username" id="username"><br/>
-<label for="password">Enter Password</label>
-<input type="password" name="pass" id="pass"><br/>
-<label for="c_password">Confirm Password</label>
-<input type="password" name="c_pass" id="c_pass"><br/>
+
+<label for="username"><b>Username:</b></label><br>
+<input type="text"  name="username" id="username"></br>
+
+<label for="pass"><b>Enter Password:</b></label><br>
+<input type="password"  name="pass" id="pass"></br>
+
+<label for="c_pass"><b>Confirm Password:</b></label><br>
+<input type="password"  name="c_pass" id="c_pass"></br>
+<p>Already a User ? ,Please <a href="login.php">Log in</a></p>
 <input type="submit" onclick="return doValidate();" value="Sign Up">
 <input type="submit" name="cancel" value="Cancel">
 </form>
