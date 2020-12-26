@@ -4,29 +4,37 @@ require_once "pdo.php";
 
 $salt = 'XyZzy12*_';
 if ( isset($_POST['username']) &&  isset($_POST['pass'])){
-	
+
 	$check = hash('md5', $salt.$_POST['pass']);
 
 	$stmt = $pdo->prepare('SELECT userid FROM users WHERE username = :un');//To check Existence of username
 	$stmt2 = $pdo->prepare('SELECT userid, username FROM users WHERE username = :un AND password = :pw');//To check for correct password
-	
+
 	$stmt->execute(array( ':un' => $_POST['username']));
 	$stmt2->execute(array( ':un' => $_POST['username'], ':pw' => $check));
-	
+
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	$row2= $stmt2->fetch(PDO::FETCH_ASSOC);
-	
-		if($row===false)
+
+		if($row==false)
 		{
 			$_SESSION['error_login']="Such username does not exist";
 			header("Location: login.php");
 			return;
 		}
+<<<<<<< HEAD
+		else if ( $row2 != false ) {
+      $_SESSION['username'] = $row2['username'];
+=======
 		else if ( $row2 !== false ) {
             $_SESSION['username'] = $row2['username'];
+>>>>>>> 5bc2e7fe4a518a0d92d0fb8534c8eeabb7198181
 			$_SESSION['userid'] = $row['userid'];
+
 			header("Location: index.php");
 			return;
+
+
 		}
 		else{
 			$_SESSION['error_login']="Incorrect Password ";
@@ -105,7 +113,7 @@ function doValidate() {
             alert("Both fields must be filled out");
             return false;
         }
-        
+
         return true;
     } catch(e) {
         return false;

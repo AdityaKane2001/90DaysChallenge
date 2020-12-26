@@ -4,17 +4,28 @@ require_once "pdo.php";
 
 $salt = 'XyZzy12*_';
 if ( isset($_POST['username']) &&  isset($_POST['pass']) && $_POST['pass']==$_POST['c_pass']){
-	
+	$check_exists=$stmt=$pdo->prepare('SELECT userid FROM users WHERE users.username=:uname ');
+	$check_exists->execute(array(':uname'=>$_POST['username']));
+	$rows=$check_exists->fetchAll(PDO::FETCH_ASSOC);
+
+
+	if(!$rows){
 	$check = hash('md5', $salt.$_POST['pass']);
-
 	$stmt = $pdo->prepare('INSERT into users(username,password) VALUES (:username,:password)');
-
 	$stmt->execute(array(  ':username'=>$_POST['username'],':password' => $check));
 
 	header("Location: index.php");
 	return;
-			
-//margin: 0 0 22px 0;
+}
+else{
+	$_SESSION['error_signup']="User already exists. Please login instead.";
+	header("Location: signup.php");
+	return;
+
+}
+
+
+
 }
 ?>
 
@@ -28,7 +39,7 @@ label{
 	left:469px;
 }
 input[type=text], input[type=password] {
- 
+
   width: 30%;
   padding: 10px;
   margin: 5px 0 22px 0;
@@ -58,7 +69,14 @@ input[type=submit]{
 <body>
 <div class="container" align="center">
 <h1>Sign Up as a new user:</h1>
-
+<br>
+<?php
+if (isset ($_SESSION['error_signup'])){
+echo('<p style="color:red">'.htmlentities($_SESSION['error_signup'])."<p>\n");
+unset ($_SESSION['error_signup']);
+}
+?>
+<br>
 <form method="POST" action="signup.php">
 
 <label for="username"><b>Username:</b></label><br>

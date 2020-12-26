@@ -1,4 +1,8 @@
-<?php  ?>
+<?php
+require_once 'pdo.php';
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,9 +36,18 @@
         </li>
         <li class="nav-item">
           <?php
-          $_SESSION['username']='aditya';
+
             if(isset($_SESSION['username'])){
-              echo('<a class="nav-link"  style="color: #919191;">Welcome, '.$_SESSION['username'].'</a>');
+          echo('<li class="nav-item dropdown">
+               <a style="color: #919191;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome, '.$_SESSION["username"].'
+               </a>
+               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+
+               </ul>
+             </li>');
             }
             else{
               echo('<a class="nav-link" style="color: #919191;" href="login.php">Login</a>');
